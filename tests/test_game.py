@@ -1,9 +1,9 @@
 import unittest
 from unittest.mock import patch
+
 from game import *
 
 class TestYahtzeeGame(unittest.TestCase):
-
     def setUp(self):
         self.player = Player("Test Player")
         self.player.layout.dice = [1, 1, 2, 3, 3]
