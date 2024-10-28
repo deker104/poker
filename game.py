@@ -100,6 +100,9 @@ class Player:
     def lock_dices(self, indices):
         self.layout.lock_dices(indices)
 
+    def unlock_dices(self):
+        self.layout.unlock_dices()
+
     def get_points(self, combination):
         if combination not in self.used_combinations:
             points = self.layout.get_points(combination)
@@ -132,10 +135,11 @@ class Game:
         for _ in range(2):
             reroll_decision = input("Do you want to reroll some dice? (yes/no): ")
             if reroll_decision.lower() == 'yes':
-                indices = input("Enter the indices of dice to reroll (comma-separated): ")
+                indices = input("Enter the indices of dice to lock this turn (comma-separated): ")
                 indices = [int(i.strip()) for i in indices.split(",")]
                 current_player.lock_dices(indices)
                 current_player.reroll()
+                current_player.unlock_dices()
                 print(f"New dice: {current_player.layout.dice}")
             else:
                 break
