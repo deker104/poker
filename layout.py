@@ -1,5 +1,5 @@
 import random
-from combinations import CombinationType
+from poker.combinations import CombinationType
 
 class Layout:
     def __init__(self):
