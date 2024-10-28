@@ -1,9 +1,8 @@
 import unittest
 from unittest.mock import patch
 
-# from poker.game import *
 from poker.game import *
-from pocker.combinations import *
+from poker.combinations import *
 from poker.layout import *
 from poker.player import *
 
