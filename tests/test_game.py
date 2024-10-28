@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import patch
 
-from game import *
+from poker.game import *
 
 class TestYahtzeeGame(unittest.TestCase):
     def setUp(self):
