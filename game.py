@@ -171,6 +171,7 @@ class Game:
                 print(f"{player.name}: {player.score} points")
 
 if __name__ == "__main__":
-    player_names = ["Alice", "Bob"]
+    print("Enter the names of all players (comma-separated): ")
+    player_names = [i.strip() for i in input().split(",")]
     game = Game(player_names)
     game.start_game()
