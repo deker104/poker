@@ -1,10 +1,10 @@
 import unittest
 from unittest.mock import patch
 
-from poker.game import *
-from poker.combinations import *
-from poker.layout import *
-from poker.player import *
+from game import *
+from combinations import *
+from layout import *
+from player import *
 
 class TestYahtzeeGame(unittest.TestCase):
     def setUp(self):
