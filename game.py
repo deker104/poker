@@ -1,5 +1,5 @@
-from player import Player
-from combinations import CombinationType
+from poker.player import Player
+from poker.combinations import CombinationType
 
 class Game:
     def __init__(self, player_names):

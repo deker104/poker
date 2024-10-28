@@ -1,4 +1,4 @@
-from layout import Layout
+from poker.layout import Layout
 
 class Player:
     def __init__(self, name):
