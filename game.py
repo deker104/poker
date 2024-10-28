@@ -2,7 +2,6 @@ from enum import Enum
 import random
 
 class CombinationType(Enum):
-    SKIP = "Skip"
     ACES = "Aces"
     TWOS = "Twos"
     THREES = "Threes"
@@ -103,6 +102,12 @@ class Player:
     def unlock_dices(self):
         self.layout.unlock_dices()
 
+    def check_is_combination_not_used(self, combination):
+        if combination in self.used_combinations:
+            print('Combination was already used in this game, please choose other combination')
+            return False
+        return True
+
     def get_points(self, combination):
         if combination not in self.used_combinations:
             points = self.layout.get_points(combination)
@@ -113,7 +118,6 @@ class Player:
     def end_turn(self):
         self.layout.unlock_dices()
         self.score += sum(self.used_combinations.values())
-        self.used_combinations.clear()
 
 
 class Game:
@@ -144,7 +148,8 @@ class Game:
             else:
                 break
 
-        combination_choices = [combination for combination in CombinationType]
+        used_combinations = current_player.used_combinations.keys()
+        combination_choices = [combination for combination in CombinationType if combination not in used_combinations]
         print("Available combinations:")
         for i, combination in enumerate(combination_choices):
             if combination not in current_player.used_combinations:
@@ -166,6 +171,6 @@ class Game:
                 print(f"{player.name}: {player.score} points")
 
 if __name__ == "__main__":
-    player_names = ["Alice", "Bob", "Charlie"]
+    player_names = ["Alice", "Bob"]
     game = Game(player_names)
     game.start_game()
