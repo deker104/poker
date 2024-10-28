@@ -1,4 +1,4 @@
-from player import Player
+from poker.player import Player
 from combinations import CombinationType
 
 class Game:
